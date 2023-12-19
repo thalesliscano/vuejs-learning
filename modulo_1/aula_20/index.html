@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Vuejs2</title>
+</head>
+
+<body>
+  <div id="app">
+    <h4>Adicionar pacientes</h4>
+    <span>Nome:</span> <input type="text" v-model="inputNome"><br>
+    <span>Idade:</span> <input type="number" v-model="inputIdade"><br>
+    <span>Plano:</span> <input type="text" v-model="inputPlano"><br>
+
+    <button @click="adicionarPaciente">Adicionar</button>
+
+    <hr>
+    <h3>Ultimo paciente cadastrado</h3>
+    <p v-if="pacientes.length > 0">
+      {{ ultimoPaciente }}
+    </p>
+    <hr>
+
+    <h3>Pacientes do plano Ouro</h3>
+    <p v-for="p in planoOuro">{{ p.nome }} </p>
+    <hr>
+
+    <h3>Pacientes cadastrados</h3>
+    <p v-for="p in pacientes">{{ p.nome }}</p>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        pacientes: [],
+        inputNome: '',
+        inputIdade: '',
+        inputPlano: ''
+      },
+
+      methods: {
+        adicionarPaciente() {
+          const idade = parseInt(this.inputIdade);
+          this.pacientes.push({
+            nome: this.inputNome,
+            idade: isNaN(idade) ? null : idade,
+            plano: this.inputPlano
+          });
+
+          this.inputNome = '';
+          this.inputIdade = '';
+          this.inputPlano = '';
+        }
+      },
+      computed: {
+        ultimoPaciente() {
+          let key = this.pacientes.length - 1;
+          let txt = '';
+          txt += 'Paciente: ' + this.pacientes[key].nome
+          txt += 'Idade: ' + this.pacientes[key].idade
+          txt += 'Plano: ' + this.pacientes[key].plano
+          return txt;
+        },
+        planoOuro() {
+          return this.pacientes.filter(item => item.plano == 'Ouro');
+
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

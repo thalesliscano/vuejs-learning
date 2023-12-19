@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Vuejs2</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="borda main-div" :class="color">
+      Cor: {{ color }}
+      <br>
+      Posição X do Mouse: {{ posicaoX }}
+      Posição Y do Mouse: {{ posicaoY }}
+    </div>
+    <hr>
+    <div @click="mudarCor('verde')" class="borda div-comum"></div>
+    <div class="borda div-comum" @mouseover="mudarCor('azul')" @mouseout="mudarCor('vermelho')"></div>
+    <div class="borda div-comum" @mousemove="cordenadas($event)"></div>
+
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        color: 'branco',
+        posicaoX: 0,
+        posicaoY: 0,
+      },
+      methods: {
+        mudarCor(cor) {
+          this.color = cor;
+          console.log(this.color);
+        },
+        cordenadas(evento) {
+          this.posicaoX = evento.clientX;
+          this.posicaoY = evento.clientY;
+          console.log(evento.clientX, evento.clientY)
+
+        }
+      }
+    }); // vm = viewModel
+  </script>
+</body>
+
+</html>

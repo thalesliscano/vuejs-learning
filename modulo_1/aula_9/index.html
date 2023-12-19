@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Vuejs2</title>
+</head>
+
+<body>
+  <div id="app">
+    <a href="https://www.google.com.br" target="_blank" @click="prevenirComportamentoPadrao($event)">
+      Link
+    </a>
+    <br>
+    <hr>
+    <a href="https://www.google.com.br" target="_blank" v-on:click.prevent="prevenirComportamentoPadrao($event)">
+      Link
+    </a>
+    <hr>
+
+
+    Mensagem: {{ msg }}
+    <hr>
+    <button @click.once="executarUmaVez()">Botão</button>
+    <p>Cliques: {{ cliques }}</p>
+
+    <hr>
+
+    <form @submit.prevent.once="prevenirUmaVez()">
+      <button type="subimit">Enviar</button>
+    </form>
+    <p>Formulário: {{ formulario }}
+    </p>
+    <hr>
+
+    <input type="text" @keyup.Shift.Enter="capturandoTeclas($event)">
+    <p>Teclas: {{ teclas }}</p>
+    <p>Teclas: {{ teclasMensagem }}</p>
+
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        msg: "",
+        cliques: 0,
+        formulario: "",
+        teclas: "",
+      },
+      methods: {
+        prevenirComportamentoPadrao(evento) {
+          evento.preventDefault()
+          this.msg = "Comportamento padrão ativado";
+        },
+        executarUmaVez() {
+          this.cliques++;
+        },
+        prevenirUmaVez() {
+          this.formulario = "previnir o comportamento padrão"
+        },
+        capturandoTeclas(event) {
+          this.teclas += event.key;
+          this.teclasMensagem = "Teclas encadeadas com sucesso"
+
+
+        }
+      }
+    }); // vm = viewModel
+  </script>
+</body>
+
+</html>

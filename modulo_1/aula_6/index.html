@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <title>Vuejs2</title>
+  <style>
+    .vermelho {
+      color: red;
+    }
+
+    .azul {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    {{mensagem.length}}
+    {{mensagem.substr(0,6)}}
+
+    {{2 + 2}}
+    <input type="text" :value="2 + 2" :class=" 1 == 2 ? 'vermelho' : estilo">
+    <input type="text" :value="2 + 2" :class=" teste ? 'vermelho' : estilo">
+
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        mensagem: "Expressão",
+        estilo: "azul",
+        teste: true
+      },
+      methods: {
+      }
+    }); // vm = viewModel
+  </script>
+</body>
+
+</html>

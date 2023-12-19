@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <title>Vuejs2</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v- @keyup="imprimirTexto('Enviando Texto!', 6, valor)">
+    <button @click="alertaMensagem($event, 'texto', 100)">click</button>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        valor: true
+      },
+      methods: {
+        imprimirTexto(texto, numero, valor) {
+          console.log(texto)
+          console.log(numero)
+          console.log(this.valor)
+        },
+
+
+        alertaMensagem(evento, p1, p2) {
+          alert("Alerta de mensagem!")
+          console.log(evento)
+          console.log(p1)
+          console.log(p2)
+        }
+      }
+    }); // vm = viewModel
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Vuejs2</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" id="inputTexto">
+    <button @click="selecionarElementoFilho()">Botão</button>
+    <br>
+    <select name="" id="opcoes">
+      <option value="A">Opção 1</option>
+      <option value="B">Opção 2</option>
+      <option value="C">Opção 3</option>
+    </select>
+    <button @click="selecionarElementoFilho()">Botão</button>
+
+    <hr>
+
+    <p id="paragrafo" style="color: red">Parágrafo</p>
+    <div id="bloco"> Conteúdo interno da div</div>
+    <button @click="selecionarElementoFilho()">Botão</button>
+
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+      },
+      methods: {
+        selecionarElementoFilho() {
+          console.log(inputTexto.type)
+          console.log(inputTexto.value)
+          console.log(opcoes.value)
+          console.log(paragrafo.style.color)
+          console.log(bloco.innerHTML)
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

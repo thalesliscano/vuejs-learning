@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <title>Vuejs2</title>
+</head>
+
+<body>
+  <div id="app">{{mensagem}}</div>
+  <script>
+    options = {
+      //indicar uma instrução para qual elemento ele quer selecionar
+      el: "#app",// #para id / .para class
+      data: {
+        mensagem: "Primeiro template controlado pelo Vue"
+      }
+    }
+    const vm = new Vue(options); // vm = viewModel
+    console.log(vm);
+  </script>
+</body>
+
+</html>

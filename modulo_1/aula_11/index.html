@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Vuejs2</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="mostrarSaldo = !mostrarSaldo"><span v-if="!mostrarSaldo">Exibir saldo</span>
+      <span v-if="mostrarSaldo">Ocultar saldo</span></button>
+    <p>Saldo: <span v-if="mostrarSaldo">R$ {{ saldo }}</span> </p>
+
+    <hr>
+
+    Idade: <input type="text" id="inputIdade" @blur="setIdade()">{{idade}}
+    <p v-if="idade < 18">Menor Idade</p>
+    <p v-else>Maior de idade</p>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        saldo: 4570.17,
+        mostrarSaldo: false,
+        idade: 0,
+      },
+      methods: {
+        setIdade() {
+          console.log(inputIdade.value)
+          this.idade = inputIdade.value;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

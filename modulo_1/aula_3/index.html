@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <title>Vuejs2</title>
+  <style>
+    .vermelho {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <a v-bind:href="site">Site</a>
+    <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
+    <input type="text" v-bind:placeholder="instrucao" v-bind:value="valor">
+    <input type="checkbox" v-bind:checked="check"> <!--se eu colocar checked vem marcado  -->
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        site: "http://tisinapse.com.br",
+        cor: "vermelho",
+        instrucao: "placeholder, diretiva v-bind",
+        valor: "Entendendo a diretiva v-bind",
+        check: false,
+      },
+      methods: {
+      }
+    }); // vm = viewModel
+  </script>
+</body>
+
+</html>

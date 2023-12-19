@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <title>Vuejs2</title>
+</head>
+
+<body>
+  <div id="app">
+    {{mensagem}}<br>
+    valorTotal: {{valorTotal}}<br>
+    Logado: {{logado}}<br>
+    Hobbies: {{hobbies[2]}}<br>
+    Perfil: {{perfil.idade}}, {{perfil.cursos[0].nome}}
+  </div>
+  <script>
+    const vm = new Vue({
+      el: "#app",// #para id / .para class
+      data: {
+        mensagem: "Primeiro template controlado pelo Vue",
+        valorTotal: 150.47,//numero
+        logado: false, // boolean
+        hobbies: [
+          "Programar",
+          "namorar",
+          "Beatriz Sanabria"
+        ],
+        perfil: {
+          nome: "Thales",
+          site: "thaleszin.com",
+          idade: 21,
+          cursos: [
+            {
+              nome: "vuejs2",
+              cargaHoraria: "29 Horas",
+            },
+            {
+              nome: "banco de dados ,relacionais", cargaHoraria: "54 Horas"
+            }
+          ]
+        }
+      }
+    }); // vm = viewModel
+  </script>
+</body>
+
+</html>
